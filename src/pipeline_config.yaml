@@ -1,0 +1,97 @@
+# 一键流水线配置（run_pipeline.py 读取本文件）
+# 所有路径占位符：{root} 项目根  {dp} FLUID/demo/data_process  {web} FLUID/web
+# 修改参数改这里即可，不要把参数硬编码进命令历史。
+
+source: data/input.mp4
+name: input
+
+# 检测与跟踪
+device: cpu          # cpu / 0 / cuda:0
+imgsz: 1280
+conf: 0.3
+gmc: orb             # orb / ecc / sparseOptFlow / sift / none
+obb_model: models/yolo26m-obb.pt
+max_frames: 0        # 0 表示跑到视频结尾；先小样本验证可设 300
+
+# 前端
+port: 8123
+serve: false         # 流水线跑完后是否自动起前端服务
+
+stages:
+  - id: detect
+    desc: 检测与跟踪（YOLO26 + BoT-SORT，GMC 抗抖）→ input/
+    script: src/video_to_txt.py
+    cwd: "{root}"
+    enabled: true
+    args: ["--source", "{source}", "--fluid-input", "{dp}/input",
+           "--obb-model", "{obb_model}", "--conf", "{conf}",
+           "--imgsz", "{imgsz}", "--device", "{device}", "--gmc", "{gmc}",
+           "--max-frames", "{max_frames}"]
+
+  - id: structure
+    desc: 给无表头 HBB/OBB TXT 添加 FLUID 输入表头
+    script: third_party/FLUID/demo/data_process/1_Structured_Recognition_Results.py
+    cwd: "{dp}"
+    enabled: true
+
+  - id: holography
+    desc: S-G 平滑 + 单应性变换（像素 → UTM/经纬度）+ 速度 → output/
+    script: third_party/FLUID/demo/data_process/2_holography_smooth_kinematic_4K_batch.py
+    cwd: "{dp}"
+    enabled: true
+
+  # 3_Object_Type_Mapping.py 的 folder 常量写死为 output/test，只在调试子目录生效，
+  # 全量流水线跳过；类别映射已由 detect 阶段写入 FLUID 词表。
+  - id: typemap
+    desc: 类别统一映射（脚本内 folder 写死 output/test，全量流水线跳过）
+    script: third_party/FLUID/demo/data_process/3_Object_Type_Mapping.py
+    cwd: "{dp}"
+    enabled: false
+
+  - id: clean
+    desc: 多源整合 + 异常剔除 + ID 重排 → final/
+    script: third_party/FLUID/demo/data_process/4_Multi-source_Data_Integration_and_Cleaning.py
+    cwd: "{dp}"
+    enabled: true
+
+  - id: motion
+    desc: 运动校正 + 进出方向 / 行为标注（覆写 final/）
+    script: third_party/FLUID/demo/data_process/5_Motion_Correction_and_Behavior_Labeling.py
+    cwd: "{dp}"
+    enabled: true
+
+  - id: kinematic
+    desc: 卡尔曼 + RTS 平滑，输出 speed_smooth / accel（覆写 final/）
+    script: third_party/FLUID/demo/data_process/6_Kinematic_Parameter_Processing.py
+    cwd: "{dp}"
+    enabled: true
+
+  - id: ssm
+    desc: 二维替代安全指标 TTC / DRAC / MTTC（读 final/）→ 2DSSM/
+    script: src/2_droneTwoDimSSM.py
+    cwd: "{dp}"
+    enabled: true
+    args: ["--input_dir", "final", "--output_dir", "2DSSM"]
+
+  - id: pet
+    desc: 边界框相交求 PET / DGT（读 final/）→ conflict/
+    script: src/2_droneDGTBoundary.py
+    cwd: "{dp}"
+    enabled: true
+    args: ["--input_dir", "final", "--output_dir", "conflict"]
+
+  - id: conflict
+    desc: 冲突全量统计（TTC ≤ 2s、PET ≤ 4s）→ stats_result/
+    script: src/4_Conflict_Full_Statistics.py
+    cwd: "{dp}"
+    enabled: true
+    args: ["--ssm_dir", "2DSSM", "--pet_dir", "conflict", "--result_dir", "stats_result"]
+
+  - id: convert
+    desc: 转成前端数据 web/data/ta_data.js
+    script: third_party/FLUID/web/tools/convert_data.py
+    cwd: "{web}"
+    enabled: true
+    args: ["--traj", "{dp}/final/{name}_yolo_obb.csv_Traj.csv",
+           "--video", "{source}", "--out", "{web}/data/ta_data.js",
+           "--name", "{name}"]

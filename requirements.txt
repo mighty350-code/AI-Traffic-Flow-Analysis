@@ -1,0 +1,13 @@
+ultralytics>=8.4
+torch>=2.0
+opencv-python-headless>=4.7
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+PyYAML>=6.0
+pyproj>=3.5
+tqdm>=4.65
+Rtree>=1.0
+Shapely>=2.0
+geopandas>=0.14
+joblib>=1.3
