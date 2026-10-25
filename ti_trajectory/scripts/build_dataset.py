@@ -773,6 +773,19 @@ def main():
     out = os.path.join(root, args.out)
     os.makedirs(out, exist_ok=True)
 
+    # 原始数据不在仓库内，缺失时给出可操作的指引而不是 FileNotFoundError。
+    if not os.path.isdir(os.path.join(raw, "traj")):
+        print(f"[错误] 缺少原始数据目录: {os.path.join(raw, 'traj')}", file=sys.stderr)
+        print("", file=sys.stderr)
+        print("原始数据来自 Figshare FLUID v2 的 derived_data（场景 TI），未随仓库上传。", file=sys.stderr)
+        print("请按 ti_trajectory/README.md 第 3 节准备，解压后应得：", file=sys.stderr)
+        print(f"  {args.raw}/traj/      20250529_video-{{1,2,3}}_Traj.csv", file=sys.stderr)
+        print(f"  {args.raw}/route/     20250529_video-{{1,2,3}}_Route.csv", file=sys.stderr)
+        print(f"  {args.raw}/signal/    20250529_video-{{1,2,3}}_signal.csv", file=sys.stderr)
+        print(f"  {args.raw}/conflict/  TI_conflict.csv", file=sys.stderr)
+        print(f"  {args.raw}/map/       TI.osm", file=sys.stderr)
+        sys.exit(2)
+
     print("[1/8] 读取原始数据 ...")
     data = load_all(raw)
 

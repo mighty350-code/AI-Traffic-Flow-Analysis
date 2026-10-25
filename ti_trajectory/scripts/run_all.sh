@@ -25,6 +25,27 @@ echo " 根目录 : $ROOT"
 echo " 解释器 : $($PY --version 2>&1)"
 echo "=========================================="
 
+# 前置检查：原始数据不在仓库内，缺失时给出可操作的指引而不是 Python traceback。
+if [ ! -d "$RAW/traj" ]; then
+  echo ""
+  echo "[错误] 缺少原始数据目录: $RAW/traj"
+  echo ""
+  echo "原始数据来自 Figshare FLUID v2 的 derived_data（场景 TI），未随仓库上传。"
+  echo "请按 ti_trajectory/README.md 第 3 节准备，解压后应得："
+  echo ""
+  echo "  $RAW/traj/      20250529_video-{1,2,3}_Traj.csv"
+  echo "  $RAW/route/     20250529_video-{1,2,3}_Route.csv"
+  echo "  $RAW/signal/    20250529_video-{1,2,3}_signal.csv"
+  echo "  $RAW/conflict/  TI_conflict.csv"
+  echo "  $RAW/map/       TI.osm"
+  echo ""
+  echo "若只想查看已有评价结果（仓库已提交 data/ 与 reports/），无需原始数据，可单独运行："
+  echo "  $PY scripts/evaluate.py --data $DATA --out $REPORTS"
+  echo "  $PY scripts/verify_dataset.py --data $DATA"
+  echo ""
+  exit 2
+fi
+
 echo ""
 echo "[1/4] 构建统一训练数据 ..."
 "$PY" scripts/build_dataset.py --raw "$RAW" --out "$DATA"
