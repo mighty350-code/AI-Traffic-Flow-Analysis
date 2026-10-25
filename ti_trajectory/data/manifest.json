@@ -1,0 +1,140 @@
+{
+  "scene": "TI",
+  "source": "Figshare FLUID v2 derived_data (TI)",
+  "fps": 10.0,
+  "videos": {
+    "20250529_video-1": {
+      "split": "train",
+      "n_tracks": 519,
+      "n_segments": 14504
+    },
+    "20250529_video-2": {
+      "split": "val",
+      "n_tracks": 524,
+      "n_segments": 12538
+    },
+    "20250529_video-3": {
+      "split": "test",
+      "n_tracks": 472,
+      "n_segments": 12661
+    }
+  },
+  "thresholds": {
+    "stop_speed_median_ms": 0.5,
+    "stop_low_speed_ratio": 0.8,
+    "turn_net_deg": 30.0,
+    "turn_cum_deg": 60.0,
+    "jump_speed_ms": 30.0,
+    "min_interp_run": 5,
+    "min_seg_points": 10
+  },
+  "window": {
+    "frames": 30,
+    "stride": 10,
+    "seconds": 3.0
+  },
+  "n_tracks_total": 1515,
+  "n_segments_total": 39703,
+  "label_distribution": {
+    "stop": 18535,
+    "straight": 14467,
+    "turn": 6701
+  },
+  "label_distribution_by_split": {
+    "train": {
+      "stop": 7860,
+      "straight": 4600,
+      "turn": 2044
+    },
+    "val": {
+      "straight": 5072,
+      "stop": 4853,
+      "turn": 2613
+    },
+    "test": {
+      "stop": 5822,
+      "straight": 4795,
+      "turn": 2044
+    }
+  },
+  "track_label_distribution": {
+    "straight": 884,
+    "NaN": 258,
+    "left": 166,
+    "right": 149,
+    "u_turn": 58
+  },
+  "track_class_distribution": {
+    "straight": 1048,
+    "turn": 321,
+    "stop": 146
+  },
+  "track_class_distribution_by_split": {
+    "train": {
+      "straight": 366,
+      "turn": 93,
+      "stop": 60
+    },
+    "val": {
+      "straight": 365,
+      "turn": 118,
+      "stop": 41
+    },
+    "test": {
+      "straight": 317,
+      "turn": 110,
+      "stop": 45
+    }
+  },
+  "track_class_distribution_motor_only": {
+    "straight": 1003,
+    "turn": 319,
+    "stop": 146
+  },
+  "track_class_source_distribution": {
+    "route_turn": 1132,
+    "default": 237,
+    "stop_ratio": 146
+  },
+  "signal_source_distribution": {
+    "direct": 23982,
+    "straight": 15521,
+    "unknown": 200
+  },
+  "signal_state_known_ratio": 0.6040349595748432,
+  "signal_state_ref_known_ratio": 0.9949625972848399,
+  "turn_map": {
+    "l": "left",
+    "r": "right",
+    "t": "u_turn",
+    "s": "straight"
+  },
+  "conflict": {
+    "source": "FLUID upstream TI_conflict.csv",
+    "n_events": 69,
+    "n_vehicle_event_rows": 138,
+    "n_matched_rows": 134,
+    "n_unmatched_rows": 4,
+    "n_tracks_involved": 121,
+    "n_tracks_involved_motor": 120,
+    "conflict_type_distribution": {
+      "rear end": 53,
+      "head on": 9,
+      "angle": 4,
+      "sideswipe": 3
+    },
+    "conflict_events_by_split": {
+      "val": 34,
+      "train": 22,
+      "test": 13
+    },
+    "severity": {
+      "min_diff_m": 0.01,
+      "median_diff_m": 2.11,
+      "min_ttc_s": 0.0,
+      "median_ttc_s": 0.095,
+      "min_mttc_s": 0.01,
+      "max_dgt_pet": 4.0
+    }
+  }
+}

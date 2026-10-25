@@ -1,0 +1,565 @@
+[
+  {
+    "video": "20250529_video-1",
+    "scene": "TI",
+    "time": {
+      "fps_declared": 10.0,
+      "frame_min": 1,
+      "frame_max": 16551,
+      "n_frames_observed": 16551,
+      "frame_span": 16551,
+      "frame_missing_in_span": 0,
+      "frame_gap_hist": {
+        "1": 16550
+      },
+      "duplicate_id_frame_rows": 0,
+      "time_min": 0.1,
+      "time_max": 1655.1,
+      "time_equals_frame_over_fps": true,
+      "time_monotonic_within_id": true,
+      "time_monotonic_global_by_frame": true
+    },
+    "coord": {
+      "pixel_x_range": [
+        13.39,
+        3831.3
+      ],
+      "pixel_y_range": [
+        131.93,
+        2143.06
+      ],
+      "world_x_range": [
+        -86.58,
+        68.44
+      ],
+      "world_y_range": [
+        -45.95,
+        68.9
+      ],
+      "world_center_is_origin": true,
+      "speed_vs_coord_abs_err_median": 0.010000000000042628,
+      "speed_vs_coord_abs_err_p95": 0.07622776601642338,
+      "v_calc_quantiles": {
+        "0.5": 0.4472135954998467,
+        "0.9": 13.238202294870797,
+        "0.99": 18.33712082088815,
+        "0.999": 21.161292847980956,
+        "1.0": 60.15189107589703
+      },
+      "n_rows_speed_over_threshold": 28,
+      "n_ids_with_jump": 13,
+      "jump_speed_threshold_ms": 30.0
+    },
+    "track": {
+      "n_ids": 519,
+      "n_rows": 157356,
+      "adjacent_frame_gap_hist": {
+        "1": 156837
+      },
+      "n_adjacent_gaps_gt1": 0,
+      "n_ids_with_frame_gap": 0,
+      "max_frame_gap": 1,
+      "n_interpolated_rows": 5620,
+      "interp_ratio_overall": 0.03571519357380716,
+      "n_ids_with_interp": 193,
+      "n_ids_interp_ratio_over_limit": 22,
+      "interp_ratio_limit": 0.5,
+      "max_interp_run_frames": 31,
+      "n_ids_with_interp_run_ge10": 46,
+      "traj_points_median": 144,
+      "traj_duration_median_s": 14.300000000000011,
+      "n_ids_duration_lt_1s": 0,
+      "min_duration_limit_s": 1.0,
+      "n_ids_type_inconsistent": 0,
+      "n_ids_entry_dir_inconsistent": 0,
+      "n_ids_exit_dir_inconsistent": 0
+    },
+    "missing": {
+      "traj_na_by_column": {
+        "cx": 5620,
+        "cy": 5620,
+        "r": 5620,
+        "confidence": 5620,
+        "course": 519,
+        "v_calc": 519
+      },
+      "traj_na_total_cells": 23518,
+      "traj_total_cells": 5507460,
+      "traj_na_ratio": 0.004270208045087935,
+      "na_cx_equals_interpolated_rows": true,
+      "course_na_all_at_id_tail": true,
+      "route_na_by_column": {
+        "in_time": 18,
+        "out_time": 31,
+        "turn": 11,
+        "in_state": 77,
+        "in_cycle": 77,
+        "out_state": 78,
+        "out_cycle": 78,
+        "in_delta": 77,
+        "out_delta": 78
+      },
+      "signal_na_by_column": {}
+    },
+    "route_signal": {
+      "n_route_rows": 402,
+      "n_route_ids": 402,
+      "route_ids_subset_of_traj_ids": true,
+      "n_route_ids_matched_in_traj": 402,
+      "n_traj_ids_without_route": 117,
+      "route_turn_vocab": [
+        "l",
+        "r",
+        "s",
+        "t"
+      ],
+      "signal_turn_vocab": [
+        "l",
+        "p",
+        "s"
+      ],
+      "route_turn_not_in_signal_vocab": [
+        "r",
+        "t"
+      ],
+      "signal_pairs_available": [
+        "E:p",
+        "E:s",
+        "N:l",
+        "N:p",
+        "N:s",
+        "W:l",
+        "W:p",
+        "W:s"
+      ],
+      "route_pairs_needed": [
+        "E:r",
+        "E:s",
+        "E:t",
+        "N:l",
+        "N:r",
+        "N:t",
+        "W:l",
+        "W:s",
+        "W:t"
+      ],
+      "route_pairs_without_dedicated_phase": [
+        "E:r",
+        "E:t",
+        "N:r",
+        "N:t",
+        "W:t"
+      ],
+      "phase_coverage_by_turn": {
+        "l": {
+          "n_routes": 45,
+          "n_with_phase": 45
+        },
+        "r": {
+          "n_routes": 45,
+          "n_with_phase": 0
+        },
+        "s": {
+          "n_routes": 280,
+          "n_with_phase": 280
+        },
+        "t": {
+          "n_routes": 7,
+          "n_with_phase": 0
+        }
+      },
+      "n_route_turn_missing": 11,
+      "n_route_no_intersection_time": 31,
+      "n_route_out_of_traj_span": 0,
+      "n_route_one_side_time_only": 13,
+      "route_in_out_inside_traj_span_ratio": 0.9228855721393034,
+      "route_median_lead_in_s": 4.099999999999909,
+      "route_median_trail_out_s": -2.6000000000000227,
+      "geometry_matches_traj_median_dev_m": 0.0,
+      "geometry_samples": 60,
+      "signal_state_hit_ratio": 1.0,
+      "signal_state_checked": 325,
+      "signal_state_miss_no_matching_window": 0,
+      "n_signal_rows": 518,
+      "signal_cycles": 24,
+      "signal_time_max": 1675.0,
+      "signal_covers_traj_time": true
+    }
+  },
+  {
+    "video": "20250529_video-2",
+    "scene": "TI",
+    "time": {
+      "fps_declared": 10.0,
+      "frame_min": 1,
+      "frame_max": 15825,
+      "n_frames_observed": 15825,
+      "frame_span": 15825,
+      "frame_missing_in_span": 0,
+      "frame_gap_hist": {
+        "1": 15824
+      },
+      "duplicate_id_frame_rows": 0,
+      "time_min": 0.1,
+      "time_max": 1582.5,
+      "time_equals_frame_over_fps": true,
+      "time_monotonic_within_id": true,
+      "time_monotonic_global_by_frame": true
+    },
+    "coord": {
+      "pixel_x_range": [
+        8.07,
+        3829.61
+      ],
+      "pixel_y_range": [
+        316.59,
+        2151.06
+      ],
+      "world_x_range": [
+        -77.29,
+        80.97
+      ],
+      "world_y_range": [
+        -50.52,
+        62.07
+      ],
+      "world_center_is_origin": true,
+      "speed_vs_coord_abs_err_median": 0.015084358020562405,
+      "speed_vs_coord_abs_err_p95": 0.07700359138724382,
+      "v_calc_quantiles": {
+        "0.5": 3.492849839309836,
+        "0.9": 13.822445514452994,
+        "0.99": 18.78430195669057,
+        "0.999": 21.96110197598974,
+        "1.0": 88.71730383637922
+      },
+      "n_rows_speed_over_threshold": 17,
+      "n_ids_with_jump": 9,
+      "jump_speed_threshold_ms": 30.0
+    },
+    "track": {
+      "n_ids": 524,
+      "n_rows": 137615,
+      "adjacent_frame_gap_hist": {
+        "1": 137091
+      },
+      "n_adjacent_gaps_gt1": 0,
+      "n_ids_with_frame_gap": 0,
+      "max_frame_gap": 1,
+      "n_interpolated_rows": 2126,
+      "interp_ratio_overall": 0.015448897285906333,
+      "n_ids_with_interp": 198,
+      "n_ids_interp_ratio_over_limit": 9,
+      "interp_ratio_limit": 0.5,
+      "max_interp_run_frames": 27,
+      "n_ids_with_interp_run_ge10": 27,
+      "traj_points_median": 153,
+      "traj_duration_median_s": 15.199999999999989,
+      "n_ids_duration_lt_1s": 0,
+      "min_duration_limit_s": 1.0,
+      "n_ids_type_inconsistent": 0,
+      "n_ids_entry_dir_inconsistent": 0,
+      "n_ids_exit_dir_inconsistent": 0
+    },
+    "missing": {
+      "traj_na_by_column": {
+        "cx": 2126,
+        "cy": 2126,
+        "r": 2126,
+        "confidence": 2126,
+        "course": 524,
+        "v_calc": 524
+      },
+      "traj_na_total_cells": 9552,
+      "traj_total_cells": 4816525,
+      "traj_na_ratio": 0.001983172515454607,
+      "na_cx_equals_interpolated_rows": true,
+      "course_na_all_at_id_tail": true,
+      "route_na_by_column": {
+        "in_time": 17,
+        "out_time": 31,
+        "turn": 6,
+        "in_state": 87,
+        "in_cycle": 87,
+        "out_state": 90,
+        "out_cycle": 90,
+        "in_delta": 87,
+        "out_delta": 90
+      },
+      "signal_na_by_column": {}
+    },
+    "route_signal": {
+      "n_route_rows": 457,
+      "n_route_ids": 457,
+      "route_ids_subset_of_traj_ids": true,
+      "n_route_ids_matched_in_traj": 457,
+      "n_traj_ids_without_route": 67,
+      "route_turn_vocab": [
+        "l",
+        "r",
+        "s",
+        "t"
+      ],
+      "signal_turn_vocab": [
+        "l",
+        "p",
+        "s"
+      ],
+      "route_turn_not_in_signal_vocab": [
+        "r",
+        "t"
+      ],
+      "signal_pairs_available": [
+        "E:p",
+        "E:s",
+        "N:l",
+        "N:p",
+        "N:s",
+        "W:l",
+        "W:p",
+        "W:s"
+      ],
+      "route_pairs_needed": [
+        "E:r",
+        "E:s",
+        "E:t",
+        "N:l",
+        "N:r",
+        "N:s",
+        "N:t",
+        "W:l",
+        "W:s",
+        "W:t"
+      ],
+      "route_pairs_without_dedicated_phase": [
+        "E:r",
+        "E:t",
+        "N:r",
+        "N:t",
+        "W:t"
+      ],
+      "phase_coverage_by_turn": {
+        "l": {
+          "n_routes": 54,
+          "n_with_phase": 54
+        },
+        "r": {
+          "n_routes": 54,
+          "n_with_phase": 0
+        },
+        "s": {
+          "n_routes": 316,
+          "n_with_phase": 316
+        },
+        "t": {
+          "n_routes": 14,
+          "n_with_phase": 0
+        }
+      },
+      "n_route_turn_missing": 6,
+      "n_route_no_intersection_time": 31,
+      "n_route_out_of_traj_span": 0,
+      "n_route_one_side_time_only": 14,
+      "route_in_out_inside_traj_span_ratio": 0.9321663019693655,
+      "route_median_lead_in_s": 5.0,
+      "route_median_trail_out_s": -2.599999999999909,
+      "geometry_matches_traj_median_dev_m": 0.0,
+      "geometry_samples": 60,
+      "signal_state_hit_ratio": 1.0,
+      "signal_state_checked": 370,
+      "signal_state_miss_no_matching_window": 0,
+      "n_signal_rows": 497,
+      "signal_cycles": 23,
+      "signal_time_max": 1601.0,
+      "signal_covers_traj_time": true
+    }
+  },
+  {
+    "video": "20250529_video-3",
+    "scene": "TI",
+    "time": {
+      "fps_declared": 10.0,
+      "frame_min": 1,
+      "frame_max": 14436,
+      "n_frames_observed": 14436,
+      "frame_span": 14436,
+      "frame_missing_in_span": 0,
+      "frame_gap_hist": {
+        "1": 14435
+      },
+      "duplicate_id_frame_rows": 0,
+      "time_min": 0.1,
+      "time_max": 1443.6,
+      "time_equals_frame_over_fps": true,
+      "time_monotonic_within_id": true,
+      "time_monotonic_global_by_frame": true
+    },
+    "coord": {
+      "pixel_x_range": [
+        7.07,
+        3828.91
+      ],
+      "pixel_y_range": [
+        322.16,
+        2146.33
+      ],
+      "world_x_range": [
+        -82.91,
+        75.94
+      ],
+      "world_y_range": [
+        -47.93,
+        64.43
+      ],
+      "world_center_is_origin": true,
+      "speed_vs_coord_abs_err_median": 0.012947441094637746,
+      "speed_vs_coord_abs_err_p95": 0.07622776601715253,
+      "v_calc_quantiles": {
+        "0.5": 2.2472205054239205,
+        "0.9": 13.277424449042803,
+        "0.99": 18.16039647145954,
+        "0.999": 24.467529503406496,
+        "1.0": 117.95295672425371
+      },
+      "n_rows_speed_over_threshold": 9,
+      "n_ids_with_jump": 7,
+      "jump_speed_threshold_ms": 30.0
+    },
+    "track": {
+      "n_ids": 472,
+      "n_rows": 137734,
+      "adjacent_frame_gap_hist": {
+        "1": 137262
+      },
+      "n_adjacent_gaps_gt1": 0,
+      "n_ids_with_frame_gap": 0,
+      "max_frame_gap": 1,
+      "n_interpolated_rows": 1564,
+      "interp_ratio_overall": 0.011355220933102938,
+      "n_ids_with_interp": 121,
+      "n_ids_interp_ratio_over_limit": 6,
+      "interp_ratio_limit": 0.5,
+      "max_interp_run_frames": 30,
+      "n_ids_with_interp_run_ge10": 16,
+      "traj_points_median": 160,
+      "traj_duration_median_s": 15.900000000000034,
+      "n_ids_duration_lt_1s": 0,
+      "min_duration_limit_s": 1.0,
+      "n_ids_type_inconsistent": 0,
+      "n_ids_entry_dir_inconsistent": 0,
+      "n_ids_exit_dir_inconsistent": 0
+    },
+    "missing": {
+      "traj_na_by_column": {
+        "cx": 1564,
+        "cy": 1564,
+        "r": 1564,
+        "confidence": 1564,
+        "course": 472,
+        "v_calc": 472
+      },
+      "traj_na_total_cells": 7200,
+      "traj_total_cells": 4820690,
+      "traj_na_ratio": 0.0014935621249240255,
+      "na_cx_equals_interpolated_rows": true,
+      "course_na_all_at_id_tail": true,
+      "route_na_by_column": {
+        "in_time": 17,
+        "out_time": 23,
+        "turn": 8,
+        "in_state": 73,
+        "in_cycle": 73,
+        "out_state": 76,
+        "out_cycle": 76,
+        "in_delta": 73,
+        "out_delta": 76
+      },
+      "signal_na_by_column": {}
+    },
+    "route_signal": {
+      "n_route_rows": 423,
+      "n_route_ids": 423,
+      "route_ids_subset_of_traj_ids": true,
+      "n_route_ids_matched_in_traj": 423,
+      "n_traj_ids_without_route": 49,
+      "route_turn_vocab": [
+        "l",
+        "r",
+        "s",
+        "t"
+      ],
+      "signal_turn_vocab": [
+        "l",
+        "p",
+        "s"
+      ],
+      "route_turn_not_in_signal_vocab": [
+        "r",
+        "t"
+      ],
+      "signal_pairs_available": [
+        "E:p",
+        "E:s",
+        "N:l",
+        "N:p",
+        "N:s",
+        "W:l",
+        "W:p",
+        "W:s"
+      ],
+      "route_pairs_needed": [
+        "E:r",
+        "E:s",
+        "E:t",
+        "N:l",
+        "N:r",
+        "N:s",
+        "N:t",
+        "W:l",
+        "W:s",
+        "W:t"
+      ],
+      "route_pairs_without_dedicated_phase": [
+        "E:r",
+        "E:t",
+        "N:r",
+        "N:t",
+        "W:t"
+      ],
+      "phase_coverage_by_turn": {
+        "l": {
+          "n_routes": 65,
+          "n_with_phase": 65
+        },
+        "r": {
+          "n_routes": 47,
+          "n_with_phase": 0
+        },
+        "s": {
+          "n_routes": 285,
+          "n_with_phase": 285
+        },
+        "t": {
+          "n_routes": 7,
+          "n_with_phase": 0
+        }
+      },
+      "n_route_turn_missing": 8,
+      "n_route_no_intersection_time": 23,
+      "n_route_out_of_traj_span": 0,
+      "n_route_one_side_time_only": 6,
+      "route_in_out_inside_traj_span_ratio": 0.9456264775413712,
+      "route_median_lead_in_s": 4.75,
+      "route_median_trail_out_s": -2.5,
+      "geometry_matches_traj_median_dev_m": 0.0,
+      "geometry_samples": 60,
+      "signal_state_hit_ratio": 1.0,
+      "signal_state_checked": 350,
+      "signal_state_miss_no_matching_window": 0,
+      "n_signal_rows": 442,
+      "signal_cycles": 21,
+      "signal_time_max": 1469.0,
+      "signal_covers_traj_time": true
+    }
+  }
+]

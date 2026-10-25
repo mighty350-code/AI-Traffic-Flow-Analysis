@@ -1,0 +1,14 @@
+# Line endings for the ti_trajectory/ sub-project.
+#
+# Scope is deliberately limited to ti_trajectory/ so that the pre-existing
+# src/ training/ files keep their committed line endings and this change
+# does not rewrite unrelated history.
+#
+# Shell scripts MUST stay LF or they fail to execute on Linux/macOS
+# ("/bin/sh^M: bad interpreter").
+ti_trajectory/**/*.sh text eol=lf
+ti_trajectory/**/*.py text eol=lf
+ti_trajectory/**/*.md text eol=lf
+ti_trajectory/**/*.json text eol=lf
+ti_trajectory/**/*.csv text eol=lf
+ti_trajectory/**/*.png binary

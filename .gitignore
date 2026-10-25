@@ -1,9 +1,11 @@
 # Local inputs, model weights and generated results
-data/
-models/
-outputs/
-logs/
-backups/
+# Anchored to the repository root so that curated sub-project payloads
+# (e.g. ti_trajectory/data/) are not swept up by these rules.
+/data/
+/models/
+/outputs/
+/logs/
+/backups/
 *.pt
 *.pth
 *.onnx
